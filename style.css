@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden; display: grid; place-items: center;
+  padding: 28px 16px; color: #fff; font-family: 'DM Sans', sans-serif;
+  background: radial-gradient(circle at top left, #ffb3c9 0, transparent 35%),
+              linear-gradient(135deg, #6e174d, #bd286b 52%, #f06b91);
+}
+.glow { position: fixed; width: 280px; height: 280px; border-radius: 50%; filter: blur(70px); opacity: .28; pointer-events: none; }
+.glow-one { background: #ffc3d6; top: 4%; left: 4%; }
+.glow-two { background: #ff8fc1; bottom: 2%; right: 4%; }
+.card {
+  position: relative; z-index: 1; width: min(100%, 570px); padding: 42px 28px 26px;
+  text-align: center; border: 1px solid rgba(255,255,255,.38); border-radius: 28px;
+  background: rgba(255,255,255,.13); backdrop-filter: blur(14px);
+  box-shadow: 0 24px 70px rgba(50,0,30,.28); animation: appear .9s ease both;
+}
+.top-heart { font-size: 42px; animation: heartbeat 1.3s infinite; }
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 11px; opacity: .88; margin: 10px 0 16px; }
+h1 { font: 700 clamp(38px, 9vw, 62px)/1.08 'Playfair Display', serif; margin: 0; text-shadow: 0 4px 22px rgba(70,0,35,.25); }
+h1 span { color: #ffe2ec; }
+.date { margin: 18px 0 6px; letter-spacing: 1px; }
+.rose { font-size: 54px; margin: 12px 0; animation: sway 2.8s ease-in-out infinite; transform-origin: bottom center; }
+.intro { max-width: 390px; margin: 0 auto 24px; line-height: 1.7; color: #fff0f5; }
+button { border: 0; border-radius: 999px; padding: 14px 25px; color: #a51e5b; background: #fff; font: 700 15px 'DM Sans', sans-serif; cursor: pointer; box-shadow: 0 8px 24px rgba(65,0,35,.22); transition: transform .2s, box-shadow .2s; }
+button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 30px rgba(65,0,35,.3); }
+button:focus-visible { outline: 3px solid #ffe2ec; outline-offset: 4px; }
+.letter { margin: 25px auto 0; max-width: 430px; padding: 22px; border-radius: 20px; text-align: left; color: #7b1747; background: #fff3f7; animation: appear .5s ease both; }
+.letter h2 { font: 700 25px 'Playfair Display', serif; margin: 0 0 12px; }
+.letter p { line-height: 1.7; }
+.signoff { font-weight: 700; }
+.footer { font-size: 12px; opacity: .8; margin: 28px 0 0; }
+.floaty { position: fixed; bottom: -50px; pointer-events: none; animation: float-up linear forwards; filter: drop-shadow(0 2px 5px rgba(80,0,40,.15)); }
+.spark { position: fixed; pointer-events: none; animation: sparkle 1.4s ease-out forwards; }
+@keyframes float-up { to { transform: translateY(-115vh) rotate(360deg); opacity: 0; } }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 15% { transform: scale(1.18); } 30% { transform: scale(1); } 45% { transform: scale(1.12); } }
+@keyframes sway { 0%,100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes appear { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sparkle { from { transform: scale(.2); opacity: 1; } to { transform: scale(1.8) translateY(-35px); opacity: 0; } }
+@media (max-width: 420px) { .card { padding: 32px 20px 22px; } .eyebrow { letter-spacing: 2px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
